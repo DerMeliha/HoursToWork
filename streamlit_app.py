@@ -59,7 +59,7 @@ if st.button("SEND"):
         total_hours, remaining_minutes, days_of_work, required_hours, extra_work = calculate_time(user_input.strip())
         
         # Display each result on a separate line with a larger font size
-        st.markdown(f"<h3 style='font-size: 24px;'>{total_hours}:{remaining_minutes:02d} days worked.</h3>", unsafe_allow_html=True)
+        st.markdown(f"<h3 style='font-size: 24px;'>{total_hours}:{remaining_minutes:02d} hours worked.</h3>", unsafe_allow_html=True)
         st.markdown(f"<h3 style='font-size: 24px;'>{days_of_work} days of work.</h3>", unsafe_allow_html=True)
         st.markdown(f"<h3 style='font-size: 24px;'>{required_hours}:00 hours needed to work</h3>", unsafe_allow_html=True)
         st.markdown(f"<h3 style='font-size: 36px;'>{extra_work}</h3>", unsafe_allow_html=True)
