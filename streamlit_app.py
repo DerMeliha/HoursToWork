@@ -29,12 +29,12 @@ def calculate_time(data):
 
         # Determine if extra work is needed or if there's overtime/early leave
         if difference < 0:
-            extra_work = f"You have to work <span style='font-size: 36px; font-weight: bold;'>{diff_hours}:{diff_minutes:02d}</span> hours extra"
-            extra_message = "<span style='color: blue;'>Oh no you gotta work overtime. :(</span>"
-            heart_message = "<span style='color: blue;'>❤️</span>"
+            extra_work = f"You have to work <span style='font-size: 36px; font-weight: bold; color: lightblue;'>{diff_hours}:{diff_minutes:02d}</span> hours extra"
+            extra_message = "<span style='color: lightblue;'>Oh no you gotta work overtime... 🥹</span>"
+            heart_message = ""
         elif difference > 0:
-            extra_work = f"You have to work <span style='font-size: 36px; font-weight: bold;'>{diff_hours}:{diff_minutes:02d}</span> hours less"
-            extra_message = "<span style='color: blue;'>Yay!!! Leave work early. ❤️</span>"
+            extra_work = f"You have to work <span style='font-size: 36px; font-weight: bold; color: lightblue;'>{diff_hours}:{diff_minutes:02d}</span> hours less"
+            extra_message = "<span style='color: lightblue;'>Yay!!! Leave work early. 💜</span>"
             heart_message = ""
         else:
             extra_work = "You have worked exactly the required hours."
@@ -54,11 +54,11 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-# Text area for user input (allow multiple lines for convenience)
+# Multi-line placeholder for user input with increased height
 user_input = st.text_area(
     "",
-    placeholder="E.g., 08 20 05 20 09 55",
-    height=100  # Adjust the height of the input box for better visibility
+    placeholder="E.g.,\n08 20\n05 20\n09 55",  # Placeholder now spans multiple lines
+    height=200  # Adjust height to show more lines in the input box
 )
 
 # Action when user clicks "SEND" button
@@ -74,7 +74,7 @@ if st.button("SEND"):
         # If there is a difference, display two separate lines
         if extra_message:
             st.markdown(f"<h3 style='font-size: 24px;'>{extra_work}</h3>", unsafe_allow_html=True)  # Keep numbers big and bold
-            st.markdown(f"<h3 style='font-size: 24px;'>{heart_message}{extra_message}</h3>", unsafe_allow_html=True)  # Smaller message with heart emoji
+            st.markdown(f"<h3 style='font-size: 24px;'>{extra_message}</h3>", unsafe_allow_html=True)  # Smaller message with heart emoji
         else:
             # No extra work or overtime, just a single message
             st.markdown(f"<h3 style='font-size: 24px;'>{extra_work}</h3>", unsafe_allow_html=True)  # Keep numbers big and bold
