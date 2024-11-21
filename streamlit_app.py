@@ -63,17 +63,17 @@ if st.button("SEND"):
     if user_input.strip():  # Check if input is not empty
         total_hours, remaining_minutes, days_of_work, required_hours, extra_work, extra_message = calculate_time(user_input.strip())
         
-        # Display the results with numbers in larger font
-        st.markdown(f"<h3 style='font-size: 28px;'>Total hours worked: <span style='font-size: 32px;'>{total_hours}:{remaining_minutes:02d}</span></h3>", unsafe_allow_html=True)
-        st.markdown(f"<h3 style='font-size: 28px;'>Total days worked: <span style='font-size: 32px;'>{days_of_work}</span></h3>", unsafe_allow_html=True)
-        st.markdown(f"<h3 style='font-size: 28px;'>Required hours to work: <span style='font-size: 32px;'>{required_hours}:00</span></h3>", unsafe_allow_html=True)
+        # Display the results with numbers in larger font and smaller font for text
+        st.markdown(f"<h3 style='font-size: 28px;'>Total hours worked: <span style='font-size: 32px; font-weight: bold;'>{total_hours}:{remaining_minutes:02d}</span></h3>", unsafe_allow_html=True)
+        st.markdown(f"<h3 style='font-size: 28px;'>Total days worked: <span style='font-size: 32px; font-weight: bold;'>{days_of_work}</span></h3>", unsafe_allow_html=True)
+        st.markdown(f"<h3 style='font-size: 28px;'>Required hours to work: <span style='font-size: 32px; font-weight: bold;'>{required_hours}:00</span></h3>", unsafe_allow_html=True)
         
         # If there is a difference, display two separate lines
         if extra_message:
-            st.markdown(f"<h3 style='font-size: 36px; font-weight: bold;'>{extra_work}</h3>", unsafe_allow_html=True)
-            st.markdown(f"<h3 style='font-size: 28px;'>{extra_message}</h3>", unsafe_allow_html=True)
+            st.markdown(f"<h3 style='font-size: 24px;'>{extra_work}</h3>", unsafe_allow_html=True)  # Keep numbers big and bold
+            st.markdown(f"<h3 style='font-size: 24px;'>{extra_message}</h3>", unsafe_allow_html=True)  # Smaller message
         else:
             # No extra work or overtime, just a single message
-            st.markdown(f"<h3 style='font-size: 36px; font-weight: bold;'>{extra_work}</h3>", unsafe_allow_html=True)
+            st.markdown(f"<h3 style='font-size: 24px;'>{extra_work}</h3>", unsafe_allow_html=True)  # Keep numbers big and bold
     else:
         st.error("Please enter some data before pressing SEND.")
