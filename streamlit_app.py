@@ -67,9 +67,9 @@ if st.button("SEND"):
         total_hours, remaining_minutes, days_of_work, required_hours, extra_work, extra_message, heart_message = calculate_time(user_input.strip())
         
         # Display the results with numbers in larger font and smaller font for text
-        st.markdown(f"<h3 style='font-size: 28px;'>Total hours worked: <span style='font-size: 32px; font-weight: bold;'>{total_hours}:{remaining_minutes:02d}</span></h3>", unsafe_allow_html=True)
-        st.markdown(f"<h3 style='font-size: 28px;'>Total days worked: <span style='font-size: 32px; font-weight: bold;'>{days_of_work}</span></h3>", unsafe_allow_html=True)
-        st.markdown(f"<h3 style='font-size: 28px;'>Required hours to work: <span style='font-size: 32px; font-weight: bold;'>{required_hours}:00</span></h3>", unsafe_allow_html=True)
+        st.markdown(f"<h3 style='font-size: 24px;'>Total hours worked: <span style='font-size: 32px; font-weight: bold;'>{total_hours}:{remaining_minutes:02d}</span></h3>", unsafe_allow_html=True)
+        st.markdown(f"<h3 style='font-size: 24px;'>Total days worked: <span style='font-size: 32px; font-weight: bold;'>{days_of_work}</span></h3>", unsafe_allow_html=True)
+        st.markdown(f"<h3 style='font-size: 24px;'>Required hours to work: <span style='font-size: 32px; font-weight: bold;'>{required_hours}:00</span></h3>", unsafe_allow_html=True)
         
         # If there is a difference, display two separate lines
         if extra_message:
